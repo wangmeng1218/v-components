@@ -2,11 +2,11 @@
     <div style="width: 100%;height: 100%;position: fixed;top: 0;">
         <el-container>
             <el-aside width="200px">
-                <SideMenu :menuData="$store.state.menuData"></SideMenu>
+                <SideMenu :menuData="$store.state.menuData" @select="menuSelect"></SideMenu>
             </el-aside>
             <el-container class="right-side-container">
                 <el-header>
-                    <el-tabs type="card" v-model="$store.state.currentTab">
+                    <el-tabs type="card" @tab-click="tabClick" closable @tab-remove="tabRemove" v-model="currentActiveTab">
                         <el-tab-pane
                             :key="item.name"
                             v-for="(item) in $store.state.activeTabs"
@@ -17,7 +17,7 @@
                     </el-tabs>
                 </el-header>
                 <el-main style="padding:6px;position:relative;" id="page-content">
-                    <router-view/>
+                    <router-view />
                 </el-main>
             </el-container>
         </el-container>
@@ -36,13 +36,46 @@ export default {
     props: {},
     components: { SideMenu },
     data () {
-        return {};
+        return {
+            currentActiveTab: 'home'
+        };
     },
     computed: {},
     watch: {},
     created () {},
     mounted () {},
-    methods: {}
+    methods: {
+        menuSelect (item) {
+            if (item && item.id && item.name) {
+                this.$store.commit('addActiveTabs', { name: item.id, title: item.name });
+                this.$store.commit('setCurrentTab', item.id);
+                this.currentActiveTab = item.id;
+            }
+        },
+        tabRemove (name) {
+            let activeTabs = this.$store.state.activeTabs;
+            let targetIndex = activeTabs.findIndex(tab => tab.name === name);
+            // 如果关闭的是当前页面
+            if (this.$store.state.currentTab === name) {
+                let tab = activeTabs[targetIndex + 1] || activeTabs[targetIndex - 1];
+                let path = '/';
+                if (tab && tab.name) {
+                    path = '/' + tab.name;
+                }
+                this.$router.push({ path: path });
+            }
+            this.$store.commit('removeActiveTabs', name);
+        },
+        tabClick (tab) {
+            if (tab.name !== this.$store.state.currentTab) {
+                // 点击的tab页不是当前活动的tab页，需要进行路由跳转
+                let path = '/' + tab.name;
+                this.$router.push({ path: path });
+                // 设置当前活动的tab页
+                this.$store.commit('setCurrentTab', tab.name);
+            }
+        }
+    }
 };
 </script>
 

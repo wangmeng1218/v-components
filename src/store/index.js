@@ -44,8 +44,11 @@ const store = new Vuex.Store({
     removeActiveTabs: (state, tabName) => {
         state.activeTabs = state.activeTabs.filter(item => item.name !== tabName);
     },
-    addActiveTabs: (state, tabs) => {
-        state.activeTabs.concat(tabs);
+    addActiveTabs: (state, activeTab) => {
+        let tab = state.activeTabs.find(item => item.name === activeTab.name);
+        if (!tab) {
+            state.activeTabs.push(activeTab);
+        }
     },
     setCurrentTab: (state, tabName) => {
         state.currentTab = tabName;

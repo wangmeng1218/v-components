@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>按钮组</div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@
 * @author: wangmeng
 */
 export default {
-    name: '',
+    name: 'btn-group',
     props: {},
     components: {},
     data () {

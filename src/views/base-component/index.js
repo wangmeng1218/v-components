@@ -2,7 +2,7 @@
 export const routes =  [
     {
         name: 'btn-group',
-        path: './btn-group',
+        path: '/btn-group',
         component: () => import('./btn-group/index.vue')
     }
 ];

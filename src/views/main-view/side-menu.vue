@@ -19,6 +19,9 @@ export default {
         return h(
             'el-menu',
             {
+                props: {
+                    router: true,
+                },
                 on: this.$listeners
             },
             [
@@ -38,7 +41,7 @@ export default {
         getMenuItem (h, menuData) {
             let menus = [];
             let self = this;
-            menus = menuData.map(menu => {
+            menus = menuData.map((menu, index) => {
                 if (menu.children && menu.children.length !== 0) {
                     return h(
                         'el-submenu',
@@ -57,10 +60,12 @@ export default {
                         'el-menu-item',
                         {
                             props: {
-                                index: menu.id
+                                index: '/' + menu.id
                             },
+                            key: index,
                             on: {
                                 click: () => {
+                                    console.log(menu.id);
                                     this.$emit('select', menu);
                                 }
                             }

@@ -8,6 +8,7 @@ export const createRouter = (routes, store) => {
         routes
     });
     router.beforeEach((to, from, next) => {
+        store.commit('setCurrentTab', to.name);
         next();
     });
     router.afterEach((to, from) => {
