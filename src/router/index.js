@@ -11,10 +11,8 @@ export const createRouter = (routes, store) => {
         store.commit('setCurrentTab', to.name);
         next();
     });
-    router.afterEach((to, from) => {
-        console.log(to);
-        console.log(from);
-        store.commit('setCurrentUrl', to.path);
+    router.afterEach((to) => {
+        store.commit('setCurrentUrl', to.path, to.name);
     });
     return router;
 };

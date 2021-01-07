@@ -21,6 +21,7 @@ export default {
             {
                 props: {
                     router: true,
+                    ...this.$props
                 },
                 on: this.$listeners
             },

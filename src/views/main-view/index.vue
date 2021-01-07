@@ -2,7 +2,7 @@
     <div style="width: 100%;height: 100%;position: fixed;top: 0;">
         <el-container>
             <el-aside width="200px">
-                <SideMenu :menuData="$store.state.menuData" @select="menuSelect"></SideMenu>
+                <SideMenu :unique-opened="true" :default-active="defaultActiveMenu" :menuData="$store.state.menuData" @select="menuSelect"></SideMenu>
             </el-aside>
             <el-container class="right-side-container">
                 <el-header>
@@ -40,8 +40,16 @@ export default {
             currentActiveTab: 'home'
         };
     },
-    computed: {},
-    watch: {},
+    computed: {
+        defaultActiveMenu () {
+            return this.$store.state.currentUrl === 'home' ? null : this.$store.state.currentUrl;
+        }
+    },
+    watch: {
+        '$store.state.currentTab' (val) {
+            this.currentActiveTab = val;
+        }
+    },
     created () {},
     mounted () {},
     methods: {
@@ -85,4 +93,6 @@ export default {
         height 100%
         .el-header
             padding 0
+        .el-tabs__nav.is-top>div:first-child>.el-icon-close
+            display none
 </style>
