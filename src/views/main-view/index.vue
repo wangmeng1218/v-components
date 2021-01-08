@@ -1,11 +1,11 @@
 <template>
     <div style="width: 100%;height: 100%;position: fixed;top: 0;">
         <el-container>
-            <el-aside width="200px">
+            <el-aside width="210px">
                 <SideMenu :unique-opened="true" :default-active="defaultActiveMenu" :menuData="$store.state.menuData" @select="menuSelect"></SideMenu>
             </el-aside>
             <el-container class="right-side-container">
-                <el-header>
+                <!-- <el-header>
                     <el-tabs type="card" @tab-click="tabClick" closable @tab-remove="tabRemove" v-model="currentActiveTab">
                         <el-tab-pane
                             :key="item.name"
@@ -15,8 +15,8 @@
                         >
                         </el-tab-pane>
                     </el-tabs>
-                </el-header>
-                <el-main style="padding:6px;position:relative;" id="page-content">
+                </el-header> -->
+                <el-main :style="{ height: $store.state.clientHeight + 'px' }" style="padding:6px;position:relative;width: 100%;" id="page-content">
                     <router-view />
                 </el-main>
             </el-container>

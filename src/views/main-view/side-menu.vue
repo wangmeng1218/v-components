@@ -23,6 +23,9 @@ export default {
                     router: true,
                     ...this.$props
                 },
+                style: {
+                    'text-align': 'left'
+                },
                 on: this.$listeners
             },
             [

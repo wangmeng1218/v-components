@@ -12,7 +12,11 @@ const store = new Vuex.Store({
           }
       ],
       currentTab: 'home',
-      menuData: []
+      menuData: [],
+      //  浏览器可视区域高度
+      clientHeight: 0,
+      // 浏览器可视区域宽度
+      clientWidth: 0
   },
   getters: {
       getCurrentUrl: state => {
@@ -55,6 +59,15 @@ const store = new Vuex.Store({
     },
     setMenuData: (state, data) => {
         state.menuData = data;
+    },
+    setClientHeight: (state, value) => {
+        console.log('可视高度' + value);
+        // 设置浏览器可视区域高度
+        state.clientHeight = value;
+    },
+    setClientWidth: (state, value) => {
+        // 设置浏览器可视区域宽度
+        state.clientWidth = value;
     }
   },
   modules: {}

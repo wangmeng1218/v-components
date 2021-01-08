@@ -7,11 +7,21 @@
 <script>
 export default {
   name: 'App',
-  components: {}
+  components: {},
+  mounted () {
+    this.$nextTick(function () {
+      let clientWidth = document.body.clientWidth;
+      let clientHeight = document.body.clientHeight;
+      this.$store.commit('setClientHeight', clientHeight);
+      this.$store.commit('setClientWidth', clientWidth);
+    });
+  }
 }
 </script>
 
 <style>
+html,
+body,
 #app {
     font-family: "iconfont" !important;
     font-size: 16px;
@@ -22,6 +32,9 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     /*margin-top: 60px;*/
   }
 </style>
