@@ -21,7 +21,8 @@ export default {
             {
                 props: {
                     router: true,
-                    ...this.$props
+                    ...this.$props,
+                    ...this.$attrs
                 },
                 style: {
                     'text-align': 'left'
@@ -69,7 +70,6 @@ export default {
                             key: index,
                             on: {
                                 click: () => {
-                                    console.log(menu.id);
                                     this.$emit('select', menu);
                                 }
                             }

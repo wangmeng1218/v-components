@@ -10,8 +10,11 @@ export default {
   components: {},
   mounted () {
     this.$nextTick(function () {
+      let reg = /^#\/(.+?)$/;
+      let currentUrl = reg.exec(window.location.hash);
       let clientWidth = document.body.clientWidth;
       let clientHeight = document.body.clientHeight;
+      this.$store.commit('setCurrentUrl', currentUrl);
       this.$store.commit('setClientHeight', clientHeight);
       this.$store.commit('setClientWidth', clientWidth);
     });

@@ -2,7 +2,7 @@
     <div style="width: 100%;height: 100%;position: fixed;top: 0;">
         <el-container>
             <el-aside width="210px">
-                <SideMenu :unique-opened="true" :default-active="defaultActiveMenu" :menuData="$store.state.menuData" @select="menuSelect"></SideMenu>
+                <SideMenu :unique-opened="true" :default-active="$store.state.currentUrl" :menuData="$store.state.menuData" @select="menuSelect"></SideMenu>
             </el-aside>
             <el-container class="right-side-container">
                 <!-- <el-header>
@@ -40,11 +40,7 @@ export default {
             currentActiveTab: 'home'
         };
     },
-    computed: {
-        defaultActiveMenu () {
-            return this.$store.state.currentUrl === 'home' ? null : this.$store.state.currentUrl;
-        }
-    },
+    computed: {},
     watch: {
         '$store.state.currentTab' (val) {
             this.currentActiveTab = val;

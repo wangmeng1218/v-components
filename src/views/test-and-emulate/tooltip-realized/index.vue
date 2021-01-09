@@ -45,6 +45,7 @@ export default {
 .tooltip {
     position: relative;
     display: inline-block;
+    margin: 0 80px;
     border-bottom: 1px dotted black; /* 悬停元素上显示点线 */
 }
  
