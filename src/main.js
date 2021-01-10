@@ -7,11 +7,18 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import allMenus from './views/allMenus';
 
+/**
+ * 自定义组件
+ */
+import customizeComponent from './components'
+
 store.commit('setMenuData', allMenus);
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 let router = createRouter(routes, store);
 
+// 全局使用自定义组件
+Vue.use(customizeComponent);
 
 new Vue({
   router,
