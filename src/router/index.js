@@ -5,6 +5,7 @@ Vue.use(Router);
 
 export const createRouter = (routes, store) => {
     let router = new Router({
+        mode: 'history',
         routes
     });
     router.beforeEach((to, from, next) => {
