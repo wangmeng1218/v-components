@@ -9,5 +9,10 @@ export const routes =  [
         name: 'timeline-test',
         path: '/timeline-test',
         component: () => import('./timeline-test/index.vue')
+    },
+    {
+        name: 'catalog-and-content',
+        path: '/catalog-and-content',
+        component: () => import('./catalog-and-content/index.vue')
     }
 ];

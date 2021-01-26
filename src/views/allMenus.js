@@ -18,7 +18,7 @@ let allMenu = [
     },
     {
         id: 'test-and-emulate',
-        name: '测试与模仿学习',
+        name: '测试与学习',
         icon: 'el-icon-s-opportunity',
         children: testAndEmulate
     }
