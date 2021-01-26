@@ -61,7 +61,7 @@ const store = new Vuex.Store({
         state.menuData = data;
     },
     setClientHeight: (state, value) => {
-        console.log('可视高度' + value);
+        // console.log('可视高度' + value);
         // 设置浏览器可视区域高度
         state.clientHeight = value;
     },
