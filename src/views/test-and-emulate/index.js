@@ -14,5 +14,10 @@ export const routes =  [
         name: 'catalog-and-content',
         path: '/catalog-and-content',
         component: () => import('./catalog-and-content/index.vue')
+    },
+    {
+        name: 'canvas-test',
+        path: '/canvas-test',
+        component: () => import('./canvas-test/index.vue')
     }
 ];

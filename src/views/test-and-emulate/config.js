@@ -4,10 +4,13 @@ import tooltipRealized from './tooltip-realized/config';
 import timelineTest from './timeline-test/config';
 // 目录内容定位
 import catalogAndContent from './catalog-and-content/config';
+// canvas使用
+import canvasTest from './canvas-test/config';
 
 let baseComponents = [
     tooltipRealized,
     timelineTest,
-    catalogAndContent
+    catalogAndContent,
+    canvasTest
 ];
 export default baseComponents;
