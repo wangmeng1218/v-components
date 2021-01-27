@@ -7,7 +7,7 @@
                 不设置宽高时，默认宽度为300，高度为150，单位都是px。也可以使用css属性设置宽高，
                 但是如果宽高属性和初始比例不一致，会出现扭曲。所以，建议永远不要使用css设置canvas的宽高。
             </div>
-            <canvas id="basic-canvas" width="300" height="100">
+            <canvas id="basic-canvas" width="300" height="200">
                 你的浏览器不支持canvas，请升级你的浏览器。（替换内容，不支持canvas的浏览器会显示）
             </canvas>
         </div>
@@ -60,9 +60,34 @@ export default {
                 ctx.lineTo(270, 80);
                 // ctx.lineTo(270, 10);
                 // 闭合路径
-                ctx.closePath();
+                // ctx.closePath();
                 // 绘制路径
+                // ctx.stroke();
+                ctx.fill();
+
+                // 圆弧
+                ctx.beginPath();
+                ctx.arc(10, 100, 20, 0, Math.PI/2, false);
                 ctx.stroke();
+
+                // 圆弧案例2
+                ctx.beginPath();
+                ctx.arc(40, 120, 30, 0, -Math.PI/2, true);
+                ctx.closePath();
+                ctx.stroke();
+
+                // 半圆
+                ctx.beginPath();
+                ctx.arc(80, 100, 10, -Math.PI/2, Math.PI/2, false);
+                ctx.fill();
+
+                // arcTo案例
+                ctx.beginPath();
+                ctx.moveTo(100, 100);
+                ctx.arcTo(200, 100, 200, 200, 100);
+                ctx.lineTo(200, 200);
+                ctx.stroke();
+                
             } else {
                 // 不支持canvas
             }
