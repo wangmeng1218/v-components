@@ -12,6 +12,11 @@ import allMenus from './views/allMenus';
  */
 import customizeComponent from './components'
 
+// vxe-table
+import VXETable from './v-table';
+
+Vue.use(VXETable);
+
 store.commit('setMenuData', allMenus);
 Vue.use(ElementUI);
 Vue.config.productionTip = false
