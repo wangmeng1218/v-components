@@ -10,6 +10,9 @@
             <canvas id="basic-canvas" width="300" height="200">
                 你的浏览器不支持canvas，请升级你的浏览器。（替换内容，不支持canvas的浏览器会显示）
             </canvas>
+            <canvas id="basic-canvas1" width="300" height="300">
+                你的浏览器不支持canvas，请升级你的浏览器。（替换内容，不支持canvas的浏览器会显示）
+            </canvas>
         </div>
     </div>
 </template>
@@ -34,10 +37,13 @@ export default {
         // 2D渲染上下文
         this.$nextTick(function () {
             let canvas = document.getElementById('basic-canvas');
+            let canvas1 = document.getElementById('basic-canvas1');
             // 检测支持性
-            if (canvas.getContext) {
+            if (canvas.getContext && canvas1.getContext) {
                 // 获取2d上下文对象
                 let ctx = canvas.getContext('2d');
+                let ctx1 = canvas1.getContext('2d');
+
                 ctx.fillStyle = "rgb(200, 0, 0)";
                 // 绘制矩形
                 ctx.fillRect(10, 10, 55, 50);
@@ -87,7 +93,30 @@ export default {
                 ctx.arcTo(200, 100, 200, 200, 100);
                 ctx.lineTo(200, 200);
                 ctx.stroke();
+
+                // 整圆
+                ctx.beginPath();
+                ctx.arc(230, 120, 30, 0, Math.PI*2, false);
+                ctx.fill();
                 
+
+                for (let i = 0; i < 6; i++) {
+                    for(let j = 0; j < 6; j++) {
+                        ctx1.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 - 42.5 *j) + ', 0)';
+                        ctx1.fillRect(j * 50, i * 50, 50, 50);
+                    }
+                }
+                // 二次贝塞尔曲线
+                ctx1.beginPath();
+                ctx1.moveTo(10, 10);
+                ctx1.quadraticCurveTo(100, 50, 20, 100);
+                ctx1.stroke();
+
+                // 三次贝塞尔曲线
+                ctx1.beginPath();
+                ctx1.moveTo(100, 10);
+                ctx1.bezierCurveTo(150, 30, 130, 70, 100, 120);
+                ctx1.stroke();
             } else {
                 // 不支持canvas
             }
