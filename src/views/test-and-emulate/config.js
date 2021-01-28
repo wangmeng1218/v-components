@@ -6,11 +6,14 @@ import timelineTest from './timeline-test/config';
 import catalogAndContent from './catalog-and-content/config';
 // canvas使用
 import canvasTest from './canvas-test/config';
+// 测试vxe-table
+import testVxeTable from './test-vxe-table/config';
 
 let baseComponents = [
     tooltipRealized,
     timelineTest,
     catalogAndContent,
-    canvasTest
+    canvasTest,
+    testVxeTable
 ];
 export default baseComponents;

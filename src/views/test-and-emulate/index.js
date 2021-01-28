@@ -19,5 +19,10 @@ export const routes =  [
         name: 'canvas-test',
         path: '/canvas-test',
         component: () => import('./canvas-test/index.vue')
+    },
+    {
+        name: 'test-vxe-table',
+        path: '/test-vxe-table',
+        component: () => import('./test-vxe-table')
     }
 ];
