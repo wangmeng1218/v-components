@@ -8,12 +8,15 @@ import catalogAndContent from './catalog-and-content/config';
 import canvasTest from './canvas-test/config';
 // 测试vxe-table
 import testVxeTable from './test-vxe-table/config';
+// 测试Html和js
+import testHtmlAndJs from './test-html-and-js/config';
 
 let baseComponents = [
     tooltipRealized,
     timelineTest,
     catalogAndContent,
     canvasTest,
+    testHtmlAndJs,
     testVxeTable
 ];
 export default baseComponents;

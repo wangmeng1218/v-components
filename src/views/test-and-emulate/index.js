@@ -16,6 +16,11 @@ export const routes =  [
         component: () => import('./catalog-and-content/index.vue')
     },
     {
+        name: 'test-html-and-js',
+        path: '/test-html-and-js',
+        component: () => import('./test-html-and-js/index.vue')
+    },
+    {
         name: 'canvas-test',
         path: '/canvas-test',
         component: () => import('./canvas-test/index.vue')
