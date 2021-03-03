@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 100%;height: 100%;position: fixed;top: 0;">
+    <div style="width: 100%;height: 100%;position: fixed;top: 0;left: 0;">
         <el-container>
             <el-aside width="210px">
                 <SideMenu :unique-opened="true" :default-active="$store.state.currentUrl" :menuData="$store.state.menuData" @select="menuSelect"></SideMenu>
@@ -85,8 +85,6 @@ export default {
 
 <style lang="stylus">
     .right-side-container
-        width 100%
-        height 100%
         .el-header
             padding 0
         .el-tabs__nav.is-top>div:first-child>.el-icon-close
